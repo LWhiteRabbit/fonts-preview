@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>名字贴字体更换效果</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      padding: 30px;
+      font-family: sans-serif;
+    }
+    input, select {
+      padding: 8px 12px;
+      font-size: 16px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    #output {
+      font-size: 36px;
+      margin-top: 30px;
+      min-height: 50px;
+    }
+ .tips {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px dashed #eee;
+      font-size: 14px;
+      color: #FF0009;
+      line-height: 1.8;
+    }
+
+    /* ========== 所有字体声明 ========== */
+    @font-face {
+      font-family: '香蕉体';
+      src: url('fonts/文鼎香蕉人简繁.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: '楷体';
+      src: url('fonts/Aa经典楷书加粗(非商业使用).ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: '森田体';
+      src: url('fonts/ARDCCSTMoritaB5-Bold.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: '投币体';
+      src: url('fonts/a和我说话请投币AaHeWoShuoHuaQingTouBi.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: '粒线体';
+      src: url('fonts/lihsianti【粒线体】lihsianti Proportional.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: '阿玛手写体';
+      src: url('fonts/阿玛手写体.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: '粗线体';
+      src: url('fonts/tsuhsianti Proportional.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: '甜甜圈体';
+      src: url('fonts/汉仪笔染甜甜圈 W.TTF') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: '手札体';
+      src: url('fonts/07华康手札体W5.TTF') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: '娃娃体';
+      src: url('fonts/華康娃娃體改W5.TTF') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: '胖西胖胖体';
+      src: url('fonts/胖西胖胖体.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: '胖西瘦瘦体';
+      src: url('fonts/胖西瘦瘦体.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="nameInput" placeholder="请输入名字">
+  <select id="fontSelect">
+    <option value="">请选择字体</option>
+    <option value="楷体">楷体</option>
+    <option value="香蕉体">香蕉体</option>
+    <option value="森田体">森田体</option>
+    <option value="粗线体">粗线体</option>
+    <option value="娃娃体">娃娃体</option>
+    <option value="投币体">投币体</option>
+    <option value="甜甜圈体">甜甜圈体</option>
+    <option value="胖西胖胖体">胖西胖胖体</option>
+    <option value="胖西瘦瘦体">胖西瘦瘦体</option>
+    <option value="手札体">手札体</option>
+    <option value="粒线体">粒线体</option>
+    <option value="阿玛手写体">阿玛手写体</option>
+
+  </select>
+  <div id="output"></div>
+<div class="tips">
+    <p>💡 使用提示：在上方输入框填写姓名，下拉选择对应字体即可预览效果</p>
+    <p>✅ 支持全部款式字体预览，具体以实物为准</p>
+    <p>📌 下单时请备注：款式+姓名 + 所选字体名称</p>
+    <p> 💡 更换字体没有变化那就是识别不了，客服默认更换投币体</p>
+  </div>
+  <script>
+    const nameInput = document.getElementById('nameInput');
+    const fontSelect = document.getElementById('fontSelect');
+    const output = document.getElementById('output');
+
+    // 输入名字时更新显示
+    nameInput.addEventListener('input', function() {
+      output.textContent = this.value;
+    });
+
+    // 切换字体时更新样式
+    fontSelect.addEventListener('change', function() {
+      const selectedFont = this.value;
+      if (selectedFont) {
+        output.style.fontFamily = selectedFont;
+      } else {
+        output.style.fontFamily = 'sans-serif';
+      }
+    });
+  </script>
+</body>
+</html>
